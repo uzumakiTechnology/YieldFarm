@@ -318,7 +318,7 @@ contract YieldFarm is Ownable {
         PoolInfo storage pool = poolInfo[0];
         UserInfo storage user = userInfo[0][msg.sender];
 
-        updatePool(0);
+        updatePool(0); // at pool index 0
         if (user.amount > 0) {
             uint256 pending = user
                 .amount
@@ -344,7 +344,7 @@ contract YieldFarm is Ownable {
 
     // withdraw soba token
     function leaveStaking(uint256 _amount) public {
-        PoolInfo storage pool = poolInfo[0];
+        PoolInfo storage pool = poolInfo[0]; // get first pool
         UserInfo storage user = userInfo[0][msg.sender];
         require(user.amount >= _amount, "Exceed");
         updatePool(0);

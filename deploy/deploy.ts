@@ -18,17 +18,20 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   // Create deployer object and load the artifact of the contract you want to deploy.
   const deployer = new Deployer(hre, wallet);
   const artifact = await deployer.loadArtifact("YieldFarm");
+  //const artifact = await deployer.loadArtifact("SobaToken");
 
   const YieldFarmContract = await deployer.deploy(artifact, [
-    "0xBd229574b4cF46600e530ca7Eab6c9AF9e83671e", // soba
+    "0xb2ED5aa1bee20A8284333872942eC3Ba9B34b9a0", // soba
     "0x4999de98ff7Fe48137304979d957CB1e5CdA28e3", // dev address
     0,
     0,
   ]);
 
-  //const ERC20Contract = await deployer.deploy(artifact, ["SOBAJA", "SBJ"]);
+  //const ERC20Contract = await deployer.deploy(artifact, ["TOKENTEST", "TEST"]);
 
   // Show the contract info.
+  //const contractAddress = ERC20Contract.address;
   const contractAddress = YieldFarmContract.address;
+
   console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
 }
