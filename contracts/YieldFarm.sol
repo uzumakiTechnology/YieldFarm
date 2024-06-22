@@ -21,11 +21,11 @@ contract YieldFarm is Ownable {
             whenever a user deposits or withdraw LP tokens in a pool
             the pool
 
-            the pool's accCakePerShare and lastRewardBlock gets updated
+            the pool's accSobaPerShare and lastRewardBlock gets updated
             User receives the pending reward sent their address
             User amount/rewardDebt gets updated
 
-            The term accCakePerShare mean keep track the amount of CAKE earned
+            The term accSobaPerShare mean keep track the amount of CAKE earned
             per LP token(share) in specific pool
             pending reward = (user.amount * pool.accCakePerShare) - user.rewardDebt
 
@@ -122,6 +122,8 @@ contract YieldFarm is Ownable {
     }
 
     // Add new LP to the pool, only owner
+    // allocation point : used to calculate the relative weight of each pool
+    // _withUpdate : whether to call massUpdatePools or not
     function add(
         uint256 _allocPoint,
         IERC20 _lpToken,

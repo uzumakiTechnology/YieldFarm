@@ -21,16 +21,16 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   //const artifact = await deployer.loadArtifact("SobaToken");
 
   const YieldFarmContract = await deployer.deploy(artifact, [
-    "0xb2ED5aa1bee20A8284333872942eC3Ba9B34b9a0", // soba
+    "0xe3096CB188fdDF8A6698009b2Defd663403a51b6", // soba
     "0x4999de98ff7Fe48137304979d957CB1e5CdA28e3", // dev address
-    0,
-    0,
+    1000,
+    100,
   ]);
 
-  //const ERC20Contract = await deployer.deploy(artifact, ["TOKENTEST", "TEST"]);
+  // const ERC20Contract = await deployer.deploy(artifact, ["TOKENTEST", "TEST"]);
 
   // Show the contract info.
-  //const contractAddress = ERC20Contract.address;
+  // const contractAddress = ERC20Contract.address;
   const contractAddress = YieldFarmContract.address;
 
   console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
